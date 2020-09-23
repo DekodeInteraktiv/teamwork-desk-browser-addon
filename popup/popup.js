@@ -1,7 +1,12 @@
-
+let copy = false;
 
 function writeToElement(content){
   document.getElementById('content').innerHTML = content;
+  if (copy) {
+      document.getElementById('content').select();
+      document.execCommand("copy");
+      copy = false;
+  }
 }
 
 function fetchContent(tabs){
@@ -27,6 +32,25 @@ function listenForClicks(){
     .then((tabs) => {
       // Send the list of tabs to fetch.
       fetchContent(tabs);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+  });
+
+  // Fetch and copy
+  document.getElementById('copy_button').addEventListener("click", (event) => {
+
+    // Stop button default
+    event.preventDefault(); 
+
+    // Get all active browser tabs.
+    browser.tabs.query({active: true, currentWindow: true})
+    .then((tabs) => {
+      // Send the list of tabs to fetch.
+      fetchContent(tabs);
+      copy = true;
     })
     .catch((error) => {
       console.log(error);
