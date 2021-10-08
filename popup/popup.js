@@ -21,24 +21,6 @@ function fetchContent(tabs){
 
 function listenForClicks(){
 
-  // Register click event. 
-  document.getElementById('fetch_button').addEventListener("click", (event) => {
-
-    // Stop button default
-    event.preventDefault(); 
-
-    // Get all active browser tabs.
-    browser.tabs.query({active: true, currentWindow: true})
-    .then((tabs) => {
-      // Send the list of tabs to fetch.
-      fetchContent(tabs);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    
-  });
-
   // Fetch and copy
   document.getElementById('copy_button').addEventListener("click", (event) => {
 
