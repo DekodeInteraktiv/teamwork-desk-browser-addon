@@ -44,7 +44,7 @@ body {
 
 .buttons {
     display: grid;
-    grid-template-columns: 85% 13%;
+    grid-template-columns: 100%;
     grid-gap: 2%;
 }
 
@@ -71,11 +71,8 @@ body {
 }
 
 .btn.copy {
-    background-color: #29ff43;
-}
-
-.btn.fetch {
     background-color: #2962ff;
+    position: relative;
 }
 
 .btn-block {
@@ -92,5 +89,6 @@ body {
 }
 
 svg {
-    display: flex;
+    vertical-align: -5px;
+    max-width: 20px;
 }
