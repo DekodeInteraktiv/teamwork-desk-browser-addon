@@ -24,7 +24,7 @@
 
       var ticketId = document.getElementsByClassName("ticket-id")[0].innerHTML;
       var ticketCustomerFullname = document.getElementsByClassName("customer-fullname")[0].innerHTML;
-      var ticketSubject = document.getElementsByClassName("title__subject")[0].innerHTML;
+      var ticketSubject = document.getElementsByClassName("title__subject-text")[0].textContent;
 
       var data = {
         ticketId: ticketId.trim(),
